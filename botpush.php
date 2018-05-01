@@ -1,7 +1,6 @@
 <?php
 
 require "vendor/autoload.php";
-require_once 'bot_setting.php';
 $access_token = 'roMPb5NmOWgQ8S0j/Ozs9/L/Gr8fiyNYDz9hJEGZJhQub76bsCgrq5k5ESsvltErm0IwK3HJZ/7Uh/YDH3DFU/gaBek2kySbx/w7/+F8w+FqMdL3EQ0jZdvwXCoNQCWZFeq2pOVyLtlLG7CB3v2EcwdB04t89/1O/w1cDnyilFU=';
 
 $channelSecret = '75c03f392f6e53d662d6f5a8db9e421f';
