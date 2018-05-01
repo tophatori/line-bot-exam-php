@@ -1,14 +1,12 @@
 <?php
 
-
-
 require "vendor/autoload.php";
-
+require_once 'bot_setting.php';
 $access_token = 'roMPb5NmOWgQ8S0j/Ozs9/L/Gr8fiyNYDz9hJEGZJhQub76bsCgrq5k5ESsvltErm0IwK3HJZ/7Uh/YDH3DFU/gaBek2kySbx/w7/+F8w+FqMdL3EQ0jZdvwXCoNQCWZFeq2pOVyLtlLG7CB3v2EcwdB04t89/1O/w1cDnyilFU=';
 
-$channelSecret = '0b9d12d8440f8e72ace6f8bb98139090';
+$channelSecret = '75c03f392f6e53d662d6f5a8db9e421f';
 
-$pushID = 'U866aacc04480721fce435195aa42a9c6';
+$pushID = 'U7ef7a449f2a5c2057eacfc02ba2eb286';
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
