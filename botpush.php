@@ -11,7 +11,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$strAccessToken = "roMPb5NmOWgQ8S0j/Ozs9/L/Gr8fiyNYDz9hJEGZJhQub76bsCgrq5k5ESsvltErm0IwK3HJZ/7Uh/YDH3DFU/gaBek2kySbx/w7/+F8w+FqMdL3EQ0jZdvwXCoNQCWZFeq2pOVyLtlLG7CB3v2EcwdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "9sPJbcBQa+A6cL+sjFHhUVy+W3OywjzVipx473VAkZTB1vcNtMX/N293MRn/4g7P3ebB7DvgwMLgUuHhyrHDEMntzDN47mOwCCmdkRZXl7ujtAsFSHtZveEL1MC4vZswo1edLDhJPPM+p/B3nuQQgwdB04t89/1O/w1cDnyilFU=";
 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
