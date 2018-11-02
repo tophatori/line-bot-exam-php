@@ -26,7 +26,6 @@ if ($show == "$") {
         $arrbn_id = explode("$", $productivity);
         //print_r($arrbn_id);
 //        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
-
 //        echo $objResult["customer_name"];
 //        echo "#" . $objResult["Latitude"];
 //        echo "#" . $objResult["Longitude"];
@@ -51,7 +50,7 @@ if ($show == "$") {
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = $customer_name.":".$contact_tel.":".$Latitude.",".$Longitude;
+        $arrPostData['messages'][0]['text'] = $customer_name . ":" . $contact_tel . ":" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
         //$json_a = json_decode($productivity, true);
@@ -75,6 +74,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
+echo $result . "\r\n";
 ?>
 
 
