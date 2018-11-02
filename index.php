@@ -50,7 +50,7 @@ if ($show == "$") {
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = $customer_name . ":" . $contact_tel . ":" . $Latitude . "," . $Longitude;
+        $arrPostData['messages'][0]['text'] = "ชื่อผู้ประกอบการ : ".$customer_name . "\r\n เบอร์โทรศํพท์ : " . $contact_tel . "\r\n สถานที่ : " . $province . "\r\nพิกัด : " . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
         //$json_a = json_decode($productivity, true);
@@ -75,6 +75,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "\r\n";
+echo "OK";
 ?>
 
 
