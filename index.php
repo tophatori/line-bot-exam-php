@@ -50,17 +50,22 @@ if ($show == "$") {
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "ชื่อผู้ประกอบการ : ".$customer_name . "\r\n เบอร์โทรศํพท์ : " . $contact_tel . "\r\n สถานที่ : " . $province . "\r\nพิกัด : " . $Latitude . "," . $Longitude;
+        $arrPostData['messages'][0]['text'] = "ชื่อ : " 
+                . $customer_name . "\r\n"
+                . "เบอร์โทรศํพท์ : ". $contact_tel . "\r\n"
+                . "สถานที่ : " . $province . "\r\n"
+                . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
         //$json_a = json_decode($productivity, true);
         //echo $productivity ;
     }
 } else {
-    /* $arrPostData = array();
-      $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-      $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง เลขบัตรประชาชน #3100700678011 หรือ ชื่อบุคคล #ชนะสงคราม แก้วเงิน)"; */
+
+    $arrPostData = array();
+    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+    $arrPostData['messages'][0]['type'] = "text";
+    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  $BT00009 (รหัสตู้บุญเติม))";
 }
 
 
@@ -74,8 +79,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
-echo $result . "\r\n";
-echo "OK";
 ?>
 
 
