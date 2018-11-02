@@ -13,7 +13,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
-if ($show == "$") {
+if ($show == "#") {
     if ($idcard != "") {
         $urlWithoutProtocol = "http://vpn.idms.pw/auth/selectgps.php?uid=" . $idcard;
         $isRequestHeader = FALSE;
@@ -25,20 +25,29 @@ if ($show == "$") {
         //$json_a = json_decode($productivity, true);
         $arrbn_id = explode("$", $productivity);
         //print_r($arrbn_id);
-//        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
 //        echo $objResult["customer_name"];
+//        echo "#" . $objResult["contact_tel"];
 //        echo "#" . $objResult["Latitude"];
 //        echo "#" . $objResult["Longitude"];
+//        echo "#" . $objResult["address"];
+//        echo "#" . $objResult["street"];
+//        echo "#" . $objResult["district"];
+//        echo "#" . $objResult["city"];
 //        echo "#" . $objResult["province"];
-//        echo "#" . $objResult["contact_tel"];
 
 
+        $customer_name = $arrbn_id[0];  //ชื่อ
+        $contact_tel = $arrbn_id[1]; //เบอร์โทรศัพท์
+        $Latitude = $arrbn_id[2]; // ละติดจูด
+        $Longitude = $arrbn_id[3]; // ลองติจูด
+        $address = $arrbn_id[4]; // address
+        $street = $arrbn_id[5]; // street
+        $district = $arrbn_id[6]; // district
+        $city = $arrbn_id[7]; // city
+        $province= $arrbn_id[8]; // province
+        
+        
 
-        $customer_name = $arrbn_id[0];
-        $Latitude = $arrbn_id[1];
-        $Longitude = $arrbn_id[2];
-        $province = $arrbn_id[3];
-        $contact_tel = $arrbn_id[4];
 
         $urlWithoutProtocol = "http://vpn.idms.pw/auth/auth.php?pid=" . $arrbn_id[0] . "&cid=" . $arrbn_id[1];
         $isRequestHeader = FALSE;
@@ -50,10 +59,10 @@ if ($show == "$") {
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "ชื่อ : " 
+        $arrPostData['messages'][0]['text'] = "ชื่อ : "
                 . $customer_name . "\r\n"
-                . "เบอร์โทรศํพท์ : ". $contact_tel . "\r\n"
-                . "สถานที่ : " . $province . "\r\n"
+                . "เบอร์โทรศํพท์ : " . $contact_tel . "\r\n"
+                . "สถานที่ : " . $address." ".$street." ".$district." ".$city." ".$province . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
@@ -62,10 +71,10 @@ if ($show == "$") {
     }
 } else {
 
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  $BT00009 (รหัสตู้บุญเติม))";
+//    $arrPostData = array();
+//    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+//    $arrPostData['messages'][0]['type'] = "text";
+//    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
 }
 
 
