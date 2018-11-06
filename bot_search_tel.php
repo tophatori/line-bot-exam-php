@@ -25,14 +25,13 @@ if ($show == "#") {
         //$json_a = json_decode($productivity, true);
         $arrbn_id = explode("#", $productivity);
 
-
         
-        $Topup_name = $arrbn_id[0];  //รหัสตู้
-        $Mobile_Number = $arrbn_id[1]; //เบอร์โทรศัพท์
-        $Real_Service_Amount = $arrbn_id[2]; // //จำนวนที่เติม
-        $Service_Type = $arrbn_id[3]; // เครือข่าย
-        $Start_Date = $arrbn_id[4]; // วันที่เติม
-        $Topup_name = $arrbn_id[5]; // รหัสตู้บุญเติม
+        $Topup_name = $arrbn_id[1];  //รหัสตู้
+        $Mobile_Number = $arrbn_id[2]; //เบอร์โทรศัพท์
+        $Real_Service_Amount = $arrbn_id[3]; // //จำนวนที่เติม
+        $Service_Type = $arrbn_id[43]; // เครือข่าย
+        $Start_Date = $arrbn_id[5]; // วันที่เติม
+       
         $customer_name = $arrbn_id[6]; // //ชื่อตู้
         $addrss = $arrbn_id[7]; // ที่อยู่
         $Latitude = $arrbn_id[8]; // ละติจูด
