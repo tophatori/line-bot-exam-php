@@ -29,7 +29,7 @@ if ($show == "#") {
         $Topup_name = $arrbn_id[1];  //รหัสตู้
         $Mobile_Number = $arrbn_id[2]; //เบอร์โทรศัพท์
         $Real_Service_Amount = $arrbn_id[3]; // //จำนวนที่เติม
-        $Service_Type = $arrbn_id[43]; // เครือข่าย
+        $Service_Type = $arrbn_id[4]; // เครือข่าย
         $Start_Date = $arrbn_id[5]; // วันที่เติม
        
         $customer_name = $arrbn_id[6]; // //ชื่อตู้
@@ -41,7 +41,7 @@ if ($show == "#") {
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = ""
                 . "เบอร์โทร : " . $Mobile_Number . "\r\n"
-                . "จำนวน : " . $Real_Service_Amount . "\r\n"
+                . "จำนวนที่เติม : " . $Real_Service_Amount . "\r\n"
                 . "เครือข่าย : " . $Service_Type . "\r\n"
                  ."วันที่เติม : " . $Start_Date . "\r\n"
                 . "รหัสตู้ : " . $Topup_name . "\r\n"
