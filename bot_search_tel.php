@@ -26,17 +26,6 @@ if ($show == "#") {
         $arrbn_id = explode("#", $productivity);
 
 
-        $Topup_name = $row['Topup_name'];
-        $Mobile_Number = $row['Mobile_Number']; //เบอร์โทรที่เติม
-        $Real_Service_Amount = $row['Real_Service_Amount']; //จำนวนที่เติม
-        $Service_Type = $row['Service_Type']; //เครือข่าย
-        $Start_Date = $row['Start_Date']; //วันที่เติม
-        $Topup_name = $row['Topup_name']; //รหัสตู้บุญเติม
-        $customer_name = $row['customer_name']; //ชื่อตู้
-        $addrss = $row['AddrssCustomer']; //ที่อยู่
-        $Latitude = $row['Latitude']; //ละติจูด
-        $Longitude = $row['Longitude']; //ลอง
-        
         
         $Topup_name = $arrbn_id[0];  //รหัสตู้
         $Mobile_Number = $arrbn_id[1]; //เบอร์โทรศัพท์
@@ -58,7 +47,7 @@ if ($show == "#") {
                  ."วันที่เติม : " . $Start_Date . "\r\n"
                 . "รหัสตู้ : " . $Topup_name . "\r\n"
                 . "ชื่อตู้ : " . $customer_name . "\r\n"
-                . "สถานที่ : " . $address . "\r\n"
+                . "ที่อยู่ : " . $addrss . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
