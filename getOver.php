@@ -27,16 +27,6 @@ function pushMsg($arrayHeader, $arrayPostData) {
 
 
 
-
-//รับ id ว่ามาจากไหน
-if (isset($arrayJson['events'][0]['source']['userId'])) {
-    $id = $arrayJson['events'][0]['source']['userId'];
-} else if (isset($arrayJson['events'][0]['source']['groupId'])) {
-    $id = $arrayJson['events'][0]['source']['groupId'];
-} else if (isset($arrayJson['events'][0]['source']['room'])) {
-    $id = $arrayJson['events'][0]['source']['room'];
-}
-
 //รับข้อความจากผู้ใช้
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $passport = substr($arrJson['events'][0]['message']['text'], 1);
@@ -48,7 +38,7 @@ if (isset($arrayJson['events'][0]['source']['userId'])) {
 } else if (isset($arrayJson['events'][0]['source']['room'])) {
     $id = $arrayJson['events'][0]['source']['room'];
 }
-if ($show == "%") {
+if ($show == "#") {
     if ($passport != "") {
         $urlWithoutProtocol = "http://immpataya.donot.pw/imm/Line/overcheck.php?uid=" . $passport;
         $isRequestHeader = FALSE;
@@ -73,7 +63,7 @@ if ($show == "%") {
 
 
         $arrPostData = array();
-         $arrayPostData['to'] = $id;
+         $arrPostData['to'] = $id;
         //$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = ""
@@ -91,9 +81,6 @@ if ($show == "%") {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '%เลขที่พาสปอร์ต' )";
 }
-exit;
 
 ?>
-
-
 
