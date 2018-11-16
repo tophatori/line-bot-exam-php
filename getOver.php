@@ -51,11 +51,11 @@ if ($show == "#") {
                 . "วันที่ครบกำหนด : " . $visaext . "\r\n";
     }
 } else {
-
-    $arrPostData = array();
-    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
+//
+//    $arrPostData = array();
+//    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+//    $arrPostData['messages'][0]['type'] = "text";
+//    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
 }
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $strUrl);
@@ -67,7 +67,35 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
+
+
+
 
 
 
