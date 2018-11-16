@@ -24,7 +24,7 @@ if ($show == "#") {
         $productivity = curl_exec($ch);
         curl_close($ch);
      
-        //$json_a = json_decode($productivity, true);
+//        $json_a = json_decode($productivity, true);
         $arrbn_id = explode("$", $productivity);
         $id_passport = $arrbn_id[0];  //No. Passport
         $name = $arrbn_id[1];  //ชื่อ
@@ -40,8 +40,8 @@ if ($show == "#") {
 
 
         $arrPostData = array();
-        $arrPostData['to'] = $id;
-        //$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+//        $arrPostData['to'] = $id;
+        $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = ""
                 . "ชื่อ-สกุล : " . $name . "\r\n"
