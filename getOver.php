@@ -2,42 +2,18 @@
 
 $strAccessToken = "k6DsHWvM/uu/nwteixMyTAPWLGFlUuaOLxwMgh1MdSBjbN8eIkn1bqsqnFOe9WIC/JXvaBHNSHkmw5pF/uuDhlVjI3+m8+FU/oVzspagAFJrAj/tAtGJOKWp/ohH3HFdVpmJ5f9GtTcsZs+E0ezfJQdB04t89/1O/w1cDnyilFU=";
 
-
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
+
+$strUrl = "https://api.line.me/v2/bot/message/reply";
+
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
-
-
-function pushMsg($arrayHeader, $arrayPostData) {
-    $strUrl = "https://api.line.me/v2/bot/message/push";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $strUrl);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $result = curl_exec($ch);
-    curl_close($ch);
-}
-
-
-
 //รับข้อความจากผู้ใช้
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $passport = substr($arrJson['events'][0]['message']['text'], 1);
-
-if (isset($arrayJson['events'][0]['source']['userId'])) {
-    $id = $arrayJson['events'][0]['source']['userId'];
-} else if (isset($arrayJson['events'][0]['source']['groupId'])) {
-    $id = $arrayJson['events'][0]['source']['groupId'];
-} else if (isset($arrayJson['events'][0]['source']['room'])) {
-    $id = $arrayJson['events'][0]['source']['room'];
-}
 if ($show == "#") {
     if ($passport != "") {
         $urlWithoutProtocol = "http://immpataya.donot.pw/imm/Line/overcheck.php?uid=" . $passport;
@@ -47,6 +23,7 @@ if ($show == "#") {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $productivity = curl_exec($ch);
         curl_close($ch);
+     
         //$json_a = json_decode($productivity, true);
         $arrbn_id = explode("$", $productivity);
         $id_passport = $arrbn_id[0];  //No. Passport
@@ -63,7 +40,7 @@ if ($show == "#") {
 
 
         $arrPostData = array();
-         $arrPostData['to'] = $id;
+        $arrPostData['to'] = $id;
         //$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = ""
@@ -72,15 +49,27 @@ if ($show == "#") {
                 . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
                 . "ที่อยู่ : " . $AddressCus . "\r\n"
                 . "วันที่ครบกำหนด : " . $visaext . "\r\n";
-         pushMsg($arrayHeader, $arrPostData);
     }
 } else {
 
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
-    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '%เลขที่พาสปอร์ต' )";
+    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
 }
 
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $strUrl);
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$result = curl_exec($ch);
+curl_close($ch);
 ?>
+
+
 
