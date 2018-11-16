@@ -24,8 +24,8 @@ if ($show == "#") {
         $productivity = curl_exec($ch);
         curl_close($ch);
      
-//        $json_a = json_decode($productivity, true);
-        $arrbn_id = explode("$", $productivity);
+        $json_a = json_decode($productivity, true);
+        $arrbn_id = explode("$", $json_a);
         $id_passport = $arrbn_id[0];  //No. Passport
         $name = $arrbn_id[1];  //ชื่อ
         $nationality = $arrbn_id[2]; //สัญชาติ
@@ -57,8 +57,6 @@ if ($show == "#") {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
 }
-
-
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $strUrl);
 curl_setopt($ch, CURLOPT_HEADER, false);
