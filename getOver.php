@@ -23,7 +23,7 @@ if ($show == "#") {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $productivity = curl_exec($ch);
         curl_close($ch);
-     
+
 //        $json_a = json_decode($productivity, true);
         $arrbn_id = explode("$", $productivity);
         $id_passport = $arrbn_id[0];  //No. Passport
@@ -39,6 +39,8 @@ if ($show == "#") {
         $sended_sms = $arrbn_id[10]; // ที่อยู่
 
 
+        $seconds = strtotime($visaext) - strtotime(date("Y-m-d"));
+        $total_over = floor($seconds / 86400);  //จำนวนวันคงเหลือ
         $arrPostData = array();
 //        $arrPostData['to'] = $id;
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -48,7 +50,7 @@ if ($show == "#") {
                 . "สัญชาติ : " . $nationality . "\r\n"
                 . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
                 . "ที่อยู่ : " . $AddressCus . "\r\n"
-                . "วันที่ครบกำหนด : " . $visaext . "\r\n";
+                . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)\r\n";
     }
 } else {
 //
@@ -67,31 +69,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 
