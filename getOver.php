@@ -86,10 +86,10 @@ if ($show == "%") {
     }
 } else {
 
-//    $arrPostData = array();
-//    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-//    $arrPostData['messages'][0]['type'] = "text";
-//    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '#BT00009' (รหัสตู้บุญเติม))";
+    $arrPostData = array();
+    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+    $arrPostData['messages'][0]['type'] = "text";
+    $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง  '%เลขที่พาสปอร์ต' )";
 }
 exit;
 
