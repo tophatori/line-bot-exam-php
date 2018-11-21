@@ -42,11 +42,12 @@ if ($show == "#") {
         $seconds = strtotime($visaext) - strtotime(date("Y-m-d"));
         $total_over = floor($seconds / 86400);  //จำนวนวันคงเหลือ
         $arrPostData = array();
-//        $arrPostData['to'] = $id;
+//      $arrPostData['to'] = $id;
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = ""
-                . "ชื่อ-สกุล : " . $name . "\r\n"
+                . "ชื่อ-สกุล : " . $name . "\r\n" 
+                . "Passport No. : " . $passport . "\r\n"
                 . "สัญชาติ : " . $nationality . "\r\n"
                 . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
                 . "ที่อยู่ : " . $AddressCus . "\r\n"
