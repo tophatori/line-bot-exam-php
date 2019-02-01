@@ -47,9 +47,7 @@ if ($show == "#") {
 
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        if ($productivity=="0") {
-            $arrPostData['messages'][0]['text'] = "-- ไม่พบข้อมูลที่ค้นหา --";
-        }else{
+      
            $arrPostData['messages'][0]['text'] = ""
            . "ชื่อ-สกุล : " . $name . "\r\n" 
            . "Passport No. : " . $passport . "\r\n"
@@ -57,7 +55,7 @@ if ($show == "#") {
            . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
            . "ที่อยู่ : " . $AddressCus . "\r\n"
            . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)\r\n";
-       }
+      
 
    }
 } else {
