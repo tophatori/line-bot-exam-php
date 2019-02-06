@@ -46,12 +46,12 @@ if ($show == "#") {
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
          if ($productivity == "No") {
-            $arrPostData['messages'][0]['text'] = $productivity."--ไม่พบข้อมูลที่ค้นหา--";
+            $arrPostData['messages'][0]['text'] = "--ไม่พบข้อมูลที่ค้นหา--";
         } else {
-            // TODO
+           
             $arrPostData['messages'][0]['text'] = ""
+                      . "Passport No. : " . $passport . "\r\n"
                     . "ชื่อ-สกุล : " . $name . "\r\n"
-                    . "Passport No. : " . $passport . "\r\n"
                     . "สัญชาติ : " . $nationality . "\r\n"
                     . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
                     . "ที่อยู่ : " . $AddressCus . "\r\n"
