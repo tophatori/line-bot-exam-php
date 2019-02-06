@@ -1,6 +1,6 @@
 <?php
 
-$strAccessToken = "k6DsHWvM/uu/nwteixMyTAPWLGFlUuaOLxwMgh1MdSBjbN8eIkn1bqsqnFOe9WIC/JXvaBHNSHkmw5pF/uuDhlVjI3+m8+FU/oVzspagAFJrAj/tAtGJOKWp/ohH3HFdVpmJ5f9GtTcsZs+E0ezfJQdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "HE8d59EWXDUgiZaIiyIH7b01PDFQnFAfOoFzFaEZ1tOSB7lUnTETtwIqM6uh1BH2/JXvaBHNSHkmw5pF/uuDhlVjI3+m8+FU/oVzspagAFJIpHfLKUwIfTJeyUa3QmTB7EV22huFjCfU3mBrdiPo7gdB04t89/1O/w1cDnyilFU=";
 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
@@ -16,7 +16,7 @@ $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $passport = substr($arrJson['events'][0]['message']['text'], 1);
 if ($show == "#") {
     if ($passport != "") {
-        $urlWithoutProtocol = "http://www.immigrationsms.com//Line/overcheck.php?uid=" . $passport;
+        $urlWithoutProtocol = "http://www.immigrationsms.com/Line/overcheck.php?uid=" . $passport;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -43,21 +43,16 @@ if ($show == "#") {
         $total_over = floor($seconds / 86400);  //จำนวนวันคงเหลือ
         $arrPostData = array();
 //      $arrPostData['to'] = $id;
-
-
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-      
-           $arrPostData['messages'][0]['text'] = ""
-           . "ชื่อ-สกุล : " . $name . "\r\n" 
-           . "Passport No. : " . $passport . "\r\n"
-           . "สัญชาติ : " . $nationality . "\r\n"
-           . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
-           . "ที่อยู่ : " . $AddressCus . "\r\n"
-           . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)\r\n";
-      
-
-   }
+        $arrPostData['messages'][0]['text'] = ""
+                . "ชื่อ-สกุล : " . $name . "\r\n" 
+                . "Passport No. : " . $passport . "\r\n"
+                . "สัญชาติ : " . $nationality . "\r\n"
+                . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
+                . "ที่อยู่ : " . $AddressCus . "\r\n"
+                . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)\r\n";
+    }
 } else {
 //
 //    $arrPostData = array();
