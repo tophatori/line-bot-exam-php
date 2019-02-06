@@ -45,13 +45,18 @@ if ($show == "#") {
 //      $arrPostData['to'] = $id;
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = ""
-                . "ชื่อ-สกุล : " . $name . "\r\n" 
-                . "Passport No. : " . $passport . "\r\n"
-                . "สัญชาติ : " . $nationality . "\r\n"
-                . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
-                . "ที่อยู่ : " . $AddressCus . "\r\n"
-                . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)\r\n";
+         if ($productivity == "0") {
+            $arrPostData['messages'][0]['text'] = "--ไม่พบข้อมูลที่ค้นหา--";
+        } else {
+            // TODO
+            $arrPostData['messages'][0]['text'] = ""
+                    . "ชื่อ-สกุล : " . $name . "\r\n"
+                    . "Passport No. : " . $passport . "\r\n"
+                    . "สัญชาติ : " . $nationality . "\r\n"
+                    . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
+                    . "ที่อยู่ : " . $AddressCus . "\r\n"
+                    . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)";
+        }
     }
 } else {
 //
