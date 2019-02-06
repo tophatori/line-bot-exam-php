@@ -45,7 +45,7 @@ if ($show == "#") {
 //      $arrPostData['to'] = $id;
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-         if ($productivity == "0") {
+         if ($arrbn_id[0] == "0") {
             $arrPostData['messages'][0]['text'] = "--ไม่พบข้อมูลที่ค้นหา--";
         } else {
             // TODO
